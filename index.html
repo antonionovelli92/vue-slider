@@ -23,7 +23,7 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
         <!-- js -->
-        <!--  <script src="js/old-script.js"></script> -->
+         <script src="js/old-script.js"></script>
         <script defer src="js/script.js"></script>
     </head>
 
@@ -33,18 +33,18 @@
                 <!-- prev btn -->
                 <i id="prev" class="bi bi-arrow-down-circle-fill"></i>
                 <div class="gallery"> 
-                    <figure class="active">
-                        <img src="img/02.webp" alt="games_1">
+                    <figure :class="{'active': i===currentIndex}" v-for="(pic, i) in pictrues">
+                        <img :src="pic.image" :alt="pic.title">
                         <figcaption>
-                            <h2>Ratchet &amp; Clank: Rift Apart</h2>
-                            <h3>Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.</h3>
+                            <h2>{{pic.title}}</h2>
+                            <h3>{{pic.text}}</h3>
                         </figcaption>
                     </figure>
                 </div>
                 <!-- next btn -->
                 <i id="next" class="bi bi-arrow-up-circle-fill"></i>
-                <div id="thumbnails">
-                    <img src="img/01.webp" alt="games_0" class="">
+                <div id="thumbnails" >
+                    <img v-for="(pic, i) in pictrues" :src="pic.image" :alt="pic.title" :class="{'active': i===currentIndex}">
                 </div>
 
             </div>
