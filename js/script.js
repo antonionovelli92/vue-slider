@@ -6,6 +6,15 @@ const app = Vue.createApp({
             currentIndex: 0,
             pictrues
         }
+    },
+    methods: {
+        goToPrev() {
+            this.currentIndex--;
+
+        },
+        goToNext() {
+            this.currentIndex++;
+        }
     }
 });
 
