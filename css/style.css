@@ -40,6 +40,10 @@
     cursor: pointer;
 }
 
+.gallery img:hover {
+    cursor: crosshair;
+}
+
 .gallery figcaption {
     position: absolute;
     bottom: 20px;

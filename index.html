@@ -33,7 +33,7 @@
                 <!-- prev btn -->
                 <i id="prev" class="bi bi-arrow-down-circle-fill" @click="goToPrev"></i>
                 <div class="gallery"> 
-                    <figure :class="{'active': i===currentIndex}" v-for="(pic, i) in pictrues">
+                    <figure :class="{'active': i===currentIndex}" v-for="(pic, i) in pictrues" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
                         <!-- oppure utilizzo il "v-show="i===currentIndex" per nascondere l'immagine, alternativa alla classe active che ho usato(togliendo dal css il display : none)" -->
                         <img :src="pic.image" :alt="pic.title">
                         <figcaption>
@@ -45,7 +45,7 @@
                 <!-- next btn -->
                 <i id="next" class="bi bi-arrow-up-circle-fill" v-on:click="goToNext"></i>
                 <div id="thumbnails" >
-                    <img v-for="(pic, i) in pictrues" :src="pic.image" :alt="pic.title" :class="{'active': i === currentIndex}">
+                    <img v-for="(pic, i) in pictrues" :src="pic.image" :alt="pic.title" :class="{'active': i === currentIndex}"@click="goToThis(i)">
                 </div>
 
             </div>
